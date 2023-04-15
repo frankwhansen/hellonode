@@ -10,8 +10,8 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
-        app = docker.build("releaseworks/hellonode")
+        sh 'echo "Docker image build"'
+        #app = docker.build("releaseworks/hellonode")
     }
 
     stage('Test image') {
