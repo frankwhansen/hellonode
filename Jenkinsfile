@@ -23,15 +23,20 @@ node {
         //}
     }
 
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-        //docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-        //    app.push("${env.BUILD_NUMBER}")
-        //    app.push("latest")
-        //}
-        sh 'echo "Push Image"'
+    stage('Merge v1 into main') {
+            steps {
+                // Checkout the 'main' branch
+                checkout scm
+                
+                // Switch to the 'v1' branch
+                sh 'git checkout v1'
+                
+                // Merge 'v1' into 'main'
+                sh 'git merge main'
+                
+                // Push the changes to 'main'
+                sh 'git push origin v1'
+            }
+        }
     }
 }
