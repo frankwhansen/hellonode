@@ -31,7 +31,7 @@ node {
         sh 'git checkout v1'
                 
         // Merge 'v1' into 'main'
-        sh 'git merge main'
+        sh 'git merge origin main'
                 
         // Push the changes to 'main'
         sh 'git push origin v1'
