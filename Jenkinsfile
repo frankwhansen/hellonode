@@ -24,18 +24,16 @@ node {
     }
 
     stage('Merge v1 into main') {
-          steps {
-                // Checkout the 'main' branch
-                checkout scm
+        // Checkout the 'main' branch
+        checkout scm
                 
-                // Switch to the 'v1' branch
-                sh 'git checkout v1'
+        // Switch to the 'v1' branch
+        sh 'git checkout v1'
                 
-                // Merge 'v1' into 'main'
-                sh 'git merge main'
+        // Merge 'v1' into 'main'
+        sh 'git merge main'
                 
-                // Push the changes to 'main'
-                sh 'git push origin v1'
-        }
+        // Push the changes to 'main'
+        sh 'git push origin v1'
     }
 }
