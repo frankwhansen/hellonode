@@ -24,7 +24,7 @@ node {
     }
 
     stage('Merge v1 into main') {
-            steps {
+          steps {
                 // Checkout the 'main' branch
                 checkout scm
                 
@@ -36,7 +36,6 @@ node {
                 
                 // Push the changes to 'main'
                 sh 'git push origin v1'
-            }
         }
     }
 }
